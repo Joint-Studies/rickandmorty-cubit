@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+      
       # Checkout do código do repositório
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +21,14 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable' # Ou especifique uma versão específica, como '3.0.0'
+          flutter-version: '3.24.3' # Ou especifique uma versão específica, como '3.0.0'
+          
+      - name: Navigate to Flutter Project
+        run: cd rick_and_morty_cubit/
+
+      # Rodar o 'flutter pub get' para baixar dependências
+      - name: Install Dependencies
+        run: cd rick_and_morty_cubit && flutter pub get
 
       # Executando o lint
       - name: Run Flutter Lint
