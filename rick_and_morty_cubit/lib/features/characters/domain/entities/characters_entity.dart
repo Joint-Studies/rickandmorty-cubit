@@ -16,7 +16,7 @@ class CharactersEntity extends Equatable {
   final LocationModel? location;
   final OriginModel? origin;
 
-  CharactersEntity({
+  const CharactersEntity({
     this.id,
     this.name,
     this.status,
