@@ -4,7 +4,7 @@ class OriginModel extends Equatable {
   final String? name;
   final String? url;
 
-  OriginModel({
+  const OriginModel({
     this.name,
     this.url,
   });

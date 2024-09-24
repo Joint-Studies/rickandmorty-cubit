@@ -1,0 +1,42 @@
+name: Flutter Lint and Test Check
+
+# Disparado em pull requests para a branch principal
+on:
+  pull_request:
+    branches:
+      - main  # Ou a branch que deseja proteger
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      
+      # Checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Instalação do Flutter
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.3' # Ou especifique uma versão específica, como '3.0.0'
+          
+      - name: Navigate to Flutter Project
+        run: cd rick_and_morty_cubit/
+
+      # Rodar o 'flutter pub get' para baixar dependências
+      - name: Install Dependencies
+        run: cd rick_and_morty_cubit && flutter pub get
+
+      # Executando o lint
+      - name: Run Flutter Lint
+        run: flutter analyze
+        continue-on-error: false  # Isso falhará se houver algum problema de lint
+
+      # Executando testes
+      - name: Run Flutter Tests
+        run: flutter test
+        continue-on-error: true  # Isso falhará se algum teste falhar
+

@@ -4,7 +4,7 @@ class LocationModel extends Equatable {
   final String? name;
   final String? url;
 
-  LocationModel({
+  const LocationModel({
     this.name,
     this.url,
   });
