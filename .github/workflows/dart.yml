@@ -19,7 +19,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable' # Ou especifique uma versão específica, como '3.0.0'
+          flutter-version: '3.24.3' # Ou especifique uma versão específica, como '3.0.0'
 
       # Executando o lint
       - name: Run Flutter Lint
