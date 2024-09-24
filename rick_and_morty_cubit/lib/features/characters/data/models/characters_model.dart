@@ -40,8 +40,8 @@ class CharactersModel extends Equatable {
         image: json['image'] ?? '',
         url: json['url'] ?? '',
         created: json['created'] ?? '',
-        location: LocationModel.fromJson(json['location']),
-        origin: OriginModel.fromJson(json['origin']),
+        location: json['location'] != null ? LocationModel.fromJson(json['location']) : null,
+        origin: json['origin'] != null ? OriginModel.fromJson(json['origin']) : null,
       );
 
   CharactersEntity toEntity() => CharactersEntity(

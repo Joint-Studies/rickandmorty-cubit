@@ -20,7 +20,6 @@ class DioClientImpl implements DioClient {
 
   dynamic _handleError(DioException error) {
     if (error.response != null) {
-      // Quando a resposta é recebida, mas o status code não é 200
       switch (error.response?.statusCode) {
         case 400:
           return 'Bad Request: ${error.response?.data}';
@@ -36,7 +35,6 @@ class DioClientImpl implements DioClient {
           return 'Unexpected Error: ${error.response?.statusCode}';
       }
     } else {
-      // Quando não há resposta (timeout, erro de conexão)
       if (error.type == DioExceptionType.connectionTimeout) {
         return 'Connection Timeout';
       } else if (error.type == DioExceptionType.receiveTimeout) {
