@@ -21,6 +21,10 @@ jobs:
         with:
           flutter-version: '3.24.3' # Ou especifique uma versão específica, como '3.0.0'
 
+      # Rodar o 'flutter pub get' para baixar dependências
+      - name: Install Dependencies
+        run: flutter pub get
+
       # Executando o lint
       - name: Run Flutter Lint
         run: flutter analyze
