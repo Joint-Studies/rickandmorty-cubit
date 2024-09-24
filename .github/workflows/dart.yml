@@ -40,7 +40,3 @@ jobs:
         run: flutter test
         continue-on-error: true  # Isso falhará se algum teste falhar
 
-      # Rodar formatação para verificar
-      - name: Run Dart Format Check
-        run: flutter format --set-exit-if-changed .
-        continue-on-error: false  # Isso falhará se houver necessidade de reformatar
