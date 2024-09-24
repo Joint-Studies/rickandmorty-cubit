@@ -1,0 +1,37 @@
+name: Flutter Lint and Test Check
+
+# Disparado em pull requests para a branch principal
+on:
+  pull_request:
+    branches:
+      - main  # Ou a branch que deseja proteger
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Instalação do Flutter
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable' # Ou especifique uma versão específica, como '3.0.0'
+
+      # Executando o lint
+      - name: Run Flutter Lint
+        run: flutter analyze
+        continue-on-error: false  # Isso falhará se houver algum problema de lint
+
+      # Executando testes
+      - name: Run Flutter Tests
+        run: flutter test
+        continue-on-error: false  # Isso falhará se algum teste falhar
+
+      # Rodar formatação para verificar
+      - name: Run Dart Format Check
+        run: flutter format --set-exit-if-changed .
+        continue-on-error: false  # Isso falhará se houver necessidade de reformatar
