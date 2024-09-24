@@ -13,10 +13,10 @@ class ResponseModel extends Equatable {
     required this.charactersModel,
   });
 
-  factory ResponseModel.fromJson(Map<String, dynamic> json) => ResponseModel(
-        infoModel: InfoModel.fromJson(json['infoModel']),
-        charactersModel: json['charactersModel'] != null
-            ? (json['charactersModel'] as List).map((e) => CharactersModel.fromJson(e)).toList()
+  factory ResponseModel.fromJson(dynamic json) => ResponseModel(
+        infoModel: InfoModel.fromJson(json['info']),
+        charactersModel: json['characters'] != null
+            ? (json['characters'] as List).map((e) => CharactersModel.fromJson(e)).toList()
             : null,
       );
 
