@@ -21,6 +21,8 @@ jobs:
         with:
           flutter-version: '3.24.3' # Ou especifique uma versão específica, como '3.0.0'
 
+      - name: Navigate to Flutter Project
+        run: cd rick_and_morty_cubit 
       # Rodar o 'flutter pub get' para baixar dependências
       - name: Install Dependencies
         run: flutter pub get
