@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Navigate to Flutter Project
-        run: cd rick_and_morty_cubit
+        run: cd rick_and_morty_cubit/rick_and_morty_cubit
 
       # Instalação do Flutter
       - name: Set up Flutter
