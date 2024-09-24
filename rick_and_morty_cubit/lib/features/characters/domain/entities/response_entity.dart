@@ -6,7 +6,7 @@ class ResponseEntity extends Equatable {
   final InfoEntity? infoEntity;
   final List<CharactersEntity>? charactersEntity;
 
-  ResponseEntity({
+  const ResponseEntity({
     this.infoEntity,
     this.charactersEntity,
   });

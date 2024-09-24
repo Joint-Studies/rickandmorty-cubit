@@ -8,7 +8,7 @@ class ResponseModel extends Equatable {
   final InfoModel? infoModel;
   final List<CharactersModel>? charactersModel;
 
-  ResponseModel({
+  const ResponseModel({
     required this.infoModel,
     required this.charactersModel,
   });

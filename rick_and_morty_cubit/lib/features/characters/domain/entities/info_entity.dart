@@ -6,7 +6,7 @@ class InfoEntity extends Equatable {
   final String? next;
   final String? prev;
 
-  InfoEntity({
+  const InfoEntity({
     this.count,
     this.pages,
     this.next,
