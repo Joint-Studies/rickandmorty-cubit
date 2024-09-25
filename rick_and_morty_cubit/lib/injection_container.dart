@@ -4,6 +4,7 @@ import 'package:rick_and_morty_cubit/core/api/dio_client.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/datasources/characters_remote_datasource.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/repositories/characters_repository_impl.dart';
 import 'package:rick_and_morty_cubit/features/characters/domain/repositories/characters_repository.dart';
+import 'package:rick_and_morty_cubit/features/characters/domain/usecases/characters_usecase.dart';
 import 'package:rick_and_morty_cubit/features/characters/presentation/cubit/characters_cubit.dart';
 
 final sl = GetIt.instance;
@@ -25,8 +26,15 @@ Future<void> init() async {
   );
 
   sl.registerSingleton(
+    CharactersUsecase(
+      charactersRepository: sl(),
+    ),
+  );
+  sl.registerSingleton(
     CharactersCubit(
       sl(),
     ),
   );
+
+  await sl.allReady();
 }
