@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../../injection_container.dart';
 import 'endpoints.dart';
 
 abstract class DioClient {
@@ -6,7 +7,7 @@ abstract class DioClient {
 }
 
 class DioClientImpl implements DioClient {
-  final Dio _dio = Dio();
+  final _dio = sl<Dio>();
 
   @override
   Future get(String endpoint) async {
