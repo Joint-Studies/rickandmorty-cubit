@@ -1,10 +1,10 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:rick_and_morty_cubit/core/api/dio_client.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/datasources/characters_remote_datasource.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/models/characters_model.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/models/info_model.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/models/response_model.dart';
-import 'package:test/test.dart';
 
 import '../../../../mocks/character_mock.dart';
 
@@ -33,4 +33,4 @@ void main() {
   );
 }
 
-// flutter test --coverage && genhtml coverage/lcov.info -o coverage/html
+// flutter test --coverage && genhtml rick_and_morty_cubit/coverage/lcov.info -o rick_and_morty_cubit/coverage/html
