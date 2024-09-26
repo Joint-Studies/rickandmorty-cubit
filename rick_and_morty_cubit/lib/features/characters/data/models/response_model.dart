@@ -15,9 +15,8 @@ class ResponseModel extends Equatable {
 
   factory ResponseModel.fromJson(dynamic json) => ResponseModel(
         infoModel: InfoModel.fromJson(json['info']),
-        charactersModel: json['characters'] != null
-            ? (json['characters'] as List).map((e) => CharactersModel.fromJson(e)).toList()
-            : null,
+        charactersModel:
+            json['results'] != null ? (json['results'] as List).map((e) => CharactersModel.fromJson(e)).toList() : null,
       );
 
   ResponseEntity toEntity() => ResponseEntity(

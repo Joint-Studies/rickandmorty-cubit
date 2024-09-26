@@ -16,7 +16,7 @@ class CharactersRemoteDatasourceImpl implements CharactersRemoteDatasource {
 
   @override
   Future<ResponseModel> getCharactersResponse() async {
-    final response = await dioClient.get(Endpoints.character);
+    final response = await dioClient.get(endpoint: Endpoints.character);
     return ResponseModel.fromJson(response);
   }
 }

@@ -3,14 +3,14 @@ import '../../injection_container.dart';
 import 'endpoints.dart';
 
 abstract class DioClient {
-  Future<dynamic> get(String endpoint);
+  Future<dynamic> get({required String endpoint});
 }
 
 class DioClientImpl implements DioClient {
   final _dio = sl<Dio>();
 
   @override
-  Future get(String endpoint) async {
+  Future get({required String endpoint}) async {
     try {
       final response = await _dio.get('${Endpoints.url}$endpoint');
       return response.data;
