@@ -3,18 +3,18 @@ import 'package:mocktail/mocktail.dart';
 import 'package:rick_and_morty_cubit/core/api/dio_client.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/datasources/characters_remote_datasource.dart';
 
-class MockRepository extends Mock implements CharactersRemoteDatasourceImpl {}
+class MockCharactersRemoteDataSource extends Mock implements CharactersRemoteDatasourceImpl {}
 
 class DioMock extends Mock implements DioClient {}
 
 void main() {
   late DioMock dioMock;
-  late MockRepository mockRepository;
+  late MockCharactersRemoteDataSource remoteDataSource;
   late CharactersRemoteDatasourceImpl datasourceImpl;
 
   setUp(() {
     dioMock = DioMock();
-    mockRepository = MockRepository();
+    remoteDataSource = MockCharactersRemoteDataSource();
     datasourceImpl = CharactersRemoteDatasourceImpl(dioClient: dioMock);
   });
 
