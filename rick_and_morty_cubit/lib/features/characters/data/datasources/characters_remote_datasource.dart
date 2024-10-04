@@ -5,6 +5,7 @@ import '../models/response_model.dart';
 
 abstract class CharactersRemoteDatasource {
   Future<ResponseModel> getCharactersResponse();
+  Future<String> getC();
 }
 
 class CharactersRemoteDatasourceImpl implements CharactersRemoteDatasource {
@@ -18,5 +19,10 @@ class CharactersRemoteDatasourceImpl implements CharactersRemoteDatasource {
   Future<ResponseModel> getCharactersResponse() async {
     final response = await dioClient.get(endpoint: Endpoints.character);
     return ResponseModel.fromJson(response);
+  }
+
+  @override
+  Future<String> getC() async {
+    return '';
   }
 }

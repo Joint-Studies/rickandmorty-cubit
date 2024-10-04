@@ -3,6 +3,8 @@ import 'package:mocktail/mocktail.dart';
 import 'package:rick_and_morty_cubit/features/characters/domain/repositories/characters_repository.dart';
 import 'package:rick_and_morty_cubit/features/characters/domain/usecases/characters_usecase.dart';
 
+import '../../../mocks/character_mock.dart';
+
 class MockCharactersRepository extends Mock implements CharactersRepository {}
 
 void main() {
@@ -14,7 +16,16 @@ void main() {
     usecase = CharactersUsecase(charactersRepository: repository);
   });
 
-  test('Should get the entity loaded when it comes from the repository', () async {
-    when(() => repository.getCharacterResponse()).thenAnswer((_) async => );
-  });
+  test(
+    'Should get the entity loaded when it comes from the repository',
+    () async {
+      when(() => repository.getCharacterResponse()).thenAnswer(
+        (_) async => characterResponse.toEntity(),
+      );
+
+      final response = await usecase.call();
+
+      expect(response, characterResponse.toEntity());
+    },
+  );
 }

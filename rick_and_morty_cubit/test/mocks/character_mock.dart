@@ -1,6 +1,7 @@
 import 'package:rick_and_morty_cubit/features/characters/data/models/response_model.dart';
 
 final characterResponse = ResponseModel.fromJson(characterResponseFromJson);
+final characterResponseEntity = characterResponse.toEntity();
 const characterResponseFromJson = {
   "info": {"count": 826, "pages": 42, "next": "https://rickandmortyapi.com/api/character?page=2", "prev": null},
   "results": [

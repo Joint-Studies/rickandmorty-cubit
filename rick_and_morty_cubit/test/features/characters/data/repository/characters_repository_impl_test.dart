@@ -1,22 +1,32 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:rick_and_morty_cubit/core/api/dio_client.dart';
 import 'package:rick_and_morty_cubit/features/characters/data/datasources/characters_remote_datasource.dart';
+import 'package:rick_and_morty_cubit/features/characters/data/repositories/characters_repository_impl.dart';
+
+import '../../../../mocks/character_mock.dart';
 
 class MockCharactersRemoteDataSource extends Mock implements CharactersRemoteDatasourceImpl {}
 
-class DioMock extends Mock implements DioClient {}
-
 void main() {
-  late DioMock dioMock;
-  late MockCharactersRemoteDataSource remoteDataSource;
-  late CharactersRemoteDatasourceImpl datasourceImpl;
+  late CharactersRepositoryImpl repositoryImpl;
+  late MockCharactersRemoteDataSource mockRemoteDataSource;
 
   setUp(() {
-    dioMock = DioMock();
-    remoteDataSource = MockCharactersRemoteDataSource();
-    datasourceImpl = CharactersRemoteDatasourceImpl(dioClient: dioMock);
+    mockRemoteDataSource = MockCharactersRemoteDataSource();
+    repositoryImpl = CharactersRepositoryImpl(remoteDatasource: mockRemoteDataSource);
   });
 
-  test('should show return the loaded entity', () {});
+  test(
+    'should show return the loaded entity',
+    () async {
+      //Arrange
+      when(() => mockRemoteDataSource.getCharactersResponse()).thenAnswer((_) async => characterResponse);
+
+      //Act
+      final response = await repositoryImpl.getCharacterResponse();
+
+      // Assert
+      expect(response, characterResponseEntity);
+    },
+  );
 }
