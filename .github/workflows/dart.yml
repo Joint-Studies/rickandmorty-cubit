@@ -30,13 +30,19 @@ jobs:
       - name: Install Dependencies
         run: cd rick_and_morty_cubit && flutter pub get
 
+      - name: Navigate to Flutter Project
+        run: cd rick_and_morty_cubit/
+        
       # Executando o lint
       - name: Run Flutter Lint
         run: flutter analyze
         continue-on-error: false  # Isso falhará se houver algum problema de lint
-
+        
+      - name: Navigate to Flutter Project
+        run: cd rick_and_morty_cubit/
+        
       # Executando testes
       - name: Run Flutter Tests
         run: flutter test
-        continue-on-error: true  # Isso falhará se algum teste falhar
+        continue-on-error: false  # Isso falhará se algum teste falhar
 
