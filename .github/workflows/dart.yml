@@ -38,5 +38,5 @@ jobs:
       # Executando testes
       - name: Run Flutter Tests
         run: flutter test
-        continue-on-error: true  # Isso falhará se algum teste falhar
+        continue-on-error: false  # Isso falhará se algum teste falhar
 
