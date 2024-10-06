@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_cubit/core/utils/theme_extensions_ui.dart';
 import 'package:rick_and_morty_cubit/features/home/widgets/custom_elevated_button.dart';
 
 class HomePage extends StatelessWidget {
