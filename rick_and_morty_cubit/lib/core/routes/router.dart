@@ -14,10 +14,11 @@ class AppRouter {
     switch (settings.name) {
       case Routes.characters:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider.value(
-                  value: charactersCubit..getCharacter(),
-                  child: const CharactersPage(),
-                ));
+          builder: (context) => BlocProvider.value(
+            value: charactersCubit..getCharacter(),
+            child: const CharactersPage(),
+          ),
+        );
       case Routes.homePage:
       default:
         return MaterialPageRoute(
