@@ -8,8 +8,11 @@ class ThemeDataUi {
         secondaryHeaderColor: const Color(0xFF388E3C),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF00E5FF),
-            foregroundColor: const Color(0xFF00C853),
+            backgroundColor: const Color(0xFF01B4C6),
+            side: const BorderSide(
+              color: Color(0xFF97CE4C),
+              width: 3,
+            ),
           ),
         ),
       );
